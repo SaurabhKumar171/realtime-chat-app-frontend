@@ -7,6 +7,8 @@ import ChatLayout from "@/components/chat/ChatLayout";
  * Chat Component
  * Handles user login, message sending, and real-time chat display via WebSocket.
  */
+
+const baseUrl = import.meta.env.VITE_APP_URL;
 const Chat = () => {
   const [userName, setUserName] = useState<string | null>(() => {
     const saved = localStorage.getItem("chat.username");
@@ -23,7 +25,7 @@ const Chat = () => {
     typingUsers,
   } = useWebSocket({
     // url: "ws://localhost:3000",
-    url: "wss://realtime-chat-app-server-cm42.onrender.com",
+    url: baseUrl,
     userName,
   });
 

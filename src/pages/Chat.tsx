@@ -22,7 +22,8 @@ const Chat = () => {
     sendTyping,
     typingUsers,
   } = useWebSocket({
-    url: "ws://localhost:3000",
+    // url: "ws://localhost:3000",
+    url: "wss://realtime-chat-app-server-cm42.onrender.com",
     userName,
   });
 

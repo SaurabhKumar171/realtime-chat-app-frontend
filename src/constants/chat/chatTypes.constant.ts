@@ -3,4 +3,5 @@ export const chatTypes = {
   DIRECT_MESSAGE: "dm",
   SYSTEM: "system",
   TYPING: "typing",
+  HISTORY: "history",
 };

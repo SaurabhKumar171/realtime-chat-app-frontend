@@ -185,6 +185,24 @@ export const useWebSocket = ({
             break;
           }
 
+          case chatTypes.HISTORY: {
+            console.log("History data -> ", data);
+            const { storedMessages } = data;
+
+            storedMessages.forEach((msg: ChatMessage) => {
+              const message: ChatMessage = {
+                id: (msg as any).id ?? uuidv4(),
+                type: msg.type,
+                from: (msg as any).sender ?? "Unknown",
+                text: (msg as any).text ?? "",
+                ts: (msg as any).ts ?? getDateTime(),
+              };
+              addLocalMessage(message);
+            });
+
+            break;
+          }
+
           // case "identity": {
           //   const msg: ChatMessage = {
           //     id: uuidv4(),

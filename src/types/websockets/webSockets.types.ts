@@ -19,5 +19,6 @@ export type IncomingEvent =
   | { type: "users"; userList: string[] }
   | { type: "userCount"; count: number }
   | { type: "typing"; typing_users: string[] }
+  | { type: "history"; storedMessages: string[] }
   // Some backends emit shape-only events; keep this flexible
   | Record<string, any>;
